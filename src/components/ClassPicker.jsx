@@ -1,25 +1,39 @@
 "use client"
 
 import { useState } from "react"
+import barbarianArt from "../assets/wizard.png"
+import clericArt from "../assets/cleric.png"
+import bardArt from "../assets/wizard.png"
+import druidArt from "../assets/wizard.png"
 import fighterArt from "../assets/fighter.png"
-
+import monkArt from "../assets/wizard.png"    
+import paladinArt from "../assets/paladin.png"
+import rangerArt from "../assets/ranger.png"
+import rogueArt from "../assets/wizard.png"
+import sorcererArt from "../assets/sorcerer.png"
+import warlockArt from "../assets/wizard.png"
+import wizardArt from "../assets/wizard.png"
 // D&D class data with descriptions
 const classData = {
   barbarian: {
     name: "Barbarian",
-    description: "A fierce warrior who can enter a battle rage, granting enhanced physical ability and durability.",
+        description: "A fierce warrior who can enter a battle rage, granting enhanced physical ability and durability.",
+    art: barbarianArt,
   },
   bard: {
     name: "Bard",
-    description: "A magical entertainer whose power comes from the heart of inspiration and creativity.",
+      description: "A magical entertainer whose power comes from the heart of inspiration and creativity.",
+    art: bardArt,
   },
   cleric: {
     name: "Cleric",
     description: "A champion of divine power who heals the sick and protects the faithful.",
+    art: clericArt,
   },
   druid: {
     name: "Druid",
     description: "A priest of the Old Faith, wielding the powers of nature and adopting animal forms.",
+    art: druidArt,
   },
   fighter: {
     name: "Fighter",
@@ -29,30 +43,37 @@ const classData = {
   monk: {
     name: "Monk",
     description: "A master of martial arts who harnesses the power of the body to create devastating attacks.",
+    art: monkArt,
   },
   paladin: {
     name: "Paladin",
     description: "A holy warrior bound to sacred oaths, combining martial prowess with divine spells.",
+    art: paladinArt,
   },
   ranger: {
     name: "Ranger",
     description: "A warrior who uses martial prowess and nature magic to combat threats on the edges of civilization.",
+    art: rangerArt,
   },
   rogue: {
     name: "Rogue",
     description: "A scoundrel who uses stealth and trickery to overcome obstacles and enemies.",
+    art: rogueArt,
   },
   sorcerer: {
     name: "Sorcerer",
     description: "A spellcaster who draws on inherent magic from a gift or bloodline.",
+    art: sorcererArt,
   },
   warlock: {
     name: "Warlock",
-    description: "A wielder of magic derived from a bargain with an extraplanar entity.",
+      description: "A wielder of magic derived from a bargain with an extraplanar entity.",
+    art: warlockArt,
   },
   wizard: {
     name: "Wizard",
     description: "A scholarly magic-user capable of manipulating the structures of reality.",
+    art: wizardArt,
   },
 }
 
