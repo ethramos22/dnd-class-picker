@@ -1,8 +1,6 @@
 "use client"
 
 import { useState } from "react"
-import { motion, AnimatePresence } from "framer-motion"
-import { ChevronRight, Home } from "lucide-react"
 import "./ClassPicker.css"
 
 // D&D class data with descriptions
@@ -260,45 +258,30 @@ function ClassPicker() {
 
       <main className="app-main">
         <div className="content-container">
-          <AnimatePresence mode="wait">
-            {!result ? (
-              <motion.div
-                key="question"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -20 }}
-                transition={{ duration: 0.3 }}
-                className="question-container"
-              >
-                <h2 className="question-number">Question {currentQuestion.id}</h2>
-                <p className="question-text">{currentQuestion.text}</p>
-                <div className="options-container">
-                  {currentQuestion.options.map((option, index) => (
-                    <button key={index} className="option-button" onClick={() => handleOptionSelect(option)}>
-                      {option.text}
-                      <ChevronRight className="chevron-icon" />
-                    </button>
-                  ))}
-                </div>
-              </motion.div>
-            ) : (
-              <motion.div
-                key="result"
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.5 }}
-                className="result-container"
-              >
-                <h2 className="result-title">Your D&D Class</h2>
-                <p className="result-class">{classData[result].name}</p>
-                <p className="result-description">{classData[result].description}</p>
-                <button onClick={resetQuiz} className="reset-button">
-                  <Home className="home-icon" />
-                  Start Over
-                </button>
-              </motion.div>
-            )}
-          </AnimatePresence>
+          {!result ? (
+            <div className="question-container fade-in">
+              <h2 className="question-number">Question {currentQuestion.id}</h2>
+              <p className="question-text">{currentQuestion.text}</p>
+              <div className="options-container">
+                {currentQuestion.options.map((option, index) => (
+                  <button key={index} className="option-button" onClick={() => handleOptionSelect(option)}>
+                    {option.text}
+                    <span className="chevron-icon">›</span>
+                  </button>
+                ))}
+              </div>
+            </div>
+          ) : (
+            <div className="result-container fade-in">
+              <h2 className="result-title">Your D&D Class</h2>
+              <p className="result-class">{classData[result].name}</p>
+              <p className="result-description">{classData[result].description}</p>
+              <button onClick={resetQuiz} className="reset-button">
+                <span className="home-icon">⌂</span>
+                Start Over
+              </button>
+            </div>
+          )}
 
           {/* Flowchart - minimalist version */}
           <div className="flowchart-container">
@@ -309,46 +292,29 @@ function ClassPicker() {
                 const outgoingEdge = flowchartEdges.find((edge) => edge.from === node.id)
 
                 return (
-                  <div key={`node-${node.id}`}>
-                    <motion.div
-                      className="flowchart-node"
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{
-                        opacity: 1,
-                        y: 0,
-                      }}
-                      transition={{ delay: index * 0.3 }}
-                    >
+                  <div
+                    key={`node-${node.id}`}
+                    className="flowchart-item fade-in"
+                    style={{ animationDelay: `${index * 0.3}s` }}
+                  >
+                    <div className="flowchart-node">
                       <p>{node.text}</p>
-                    </motion.div>
+                    </div>
 
                     {outgoingEdge && (
-                      <motion.div
-                        className="flowchart-edge"
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        transition={{ delay: index * 0.3 + 0.15 }}
-                      >
+                      <div className="flowchart-edge fade-in" style={{ animationDelay: `${index * 0.3 + 0.15}s` }}>
                         <p className="flowchart-answer">{outgoingEdge.text}</p>
                         <div className="flowchart-arrow">↓</div>
-                      </motion.div>
+                      </div>
                     )}
                   </div>
                 )
               })}
 
               {result && (
-                <motion.div
-                  className="flowchart-result"
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  animate={{
-                    opacity: 1,
-                    scale: 1,
-                  }}
-                  transition={{ delay: flowchartNodes.length * 0.3 }}
-                >
+                <div className="flowchart-result fade-in" style={{ animationDelay: `${flowchartNodes.length * 0.3}s` }}>
                   <p>Result: {classData[result].name}</p>
-                </motion.div>
+                </div>
               )}
             </div>
           </div>
