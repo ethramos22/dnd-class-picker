@@ -1,17 +1,17 @@
 "use client"
 
 import { useState } from "react"
-import barbarianArt from "../assets/wizard.png"
+import barbarianArt from "../assets/fighter.png"
 import clericArt from "../assets/cleric.png"
-import bardArt from "../assets/wizard.png"
-import druidArt from "../assets/wizard.png"
+import bardArt from "../assets/sorcerer.png"
+import druidArt from "../assets/cleric.png"
 import fighterArt from "../assets/fighter.png"
-import monkArt from "../assets/wizard.png"    
+import monkArt from "../assets/cleric.png"    
 import paladinArt from "../assets/paladin.png"
 import rangerArt from "../assets/ranger.png"
-import rogueArt from "../assets/wizard.png"
+import rogueArt from "../assets/ranger.png"
 import sorcererArt from "../assets/sorcerer.png"
-import warlockArt from "../assets/wizard.png"
+import warlockArt from "../assets/sorcerer.png"
 import wizardArt from "../assets/wizard.png"
 // D&D class data with descriptions
 const classData = {
